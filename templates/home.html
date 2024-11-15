@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="sidebar">
+    <a href="#" id="close-btn" onclick="toggle_bar()">x</a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Services</a>
+</div>
+<button id="open-btn" onclick="toggle_bar()">☰</button>
+<div id="content">
+    <form method="post" id="form-doc">
+        <div id="menu">
+            <h3>Welcome to TIKITAKA Live Chat</h3>
+            <p>Click on the sidebar to view menu!</p>
+        </div>
+        <div>
+            <label>Name:</label>
+            <input type="text" placeholder="Your Name" name="name">
+        </div>
+        <div id="join">
+            <input type="text" placeholder="Room code" name="code">
+            <button type="submit" name="join" id="join-btn">Join a Room</button>
+        </div>
+        <button type="submit" name="create" id="create-btn">Create room</button>
+        <div id="instruct">
+            <p>Enter Your name to create a chatroom</p>
+            <p>Enter a room code to join a chatroom</p>
+        </div>
+
+        {% if error %}
+        <ul id="error">
+            <li>
+                {{error}}
+            </li>
+        </ul>
+        {% endif %}
+    </form>
+</div>
+<script>
+    function toggle_bar() {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar.style.width == '250px') {
+            sidebar.style.width = 0;
+        }
+        else {
+            sidebar.style.width = '250px';
+        }
+    }
+</script>
+
+{% endblock %}
