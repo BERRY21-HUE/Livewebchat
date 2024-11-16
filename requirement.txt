@@ -1,0 +1,5 @@
+Flask
+SocketIO
+random
+ascii_uppercase
+gunicorn
